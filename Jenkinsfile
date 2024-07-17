@@ -5,10 +5,16 @@ pipeline {
         PATH = "${JAVA_HOME}/bin:${env.PATH}"
     }
     stages {
+        stage('Verify Java Version') {
+            steps {
+                sh 'java -version'
+                sh 'echo $JAVA_HOME'
+            }
+        }
         stage('Build') {
             steps {
                 echo 'Running build automation'
-                sh './gradlew build --no-daemon'
+                sh './gradlew build --no-daemon --info'
                 archiveArtifacts artifacts: 'dist/trainSchedule.zip'
             }
         }
