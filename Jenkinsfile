@@ -17,8 +17,11 @@ pipeline {
                 sh 'env'
             }
         }
+
+        
         stage('Build') {
             steps {
+                sh './gradlew --version'
                 echo 'Running build automation'
                 sh './gradlew build --no-daemon --info --stacktrace'
 
