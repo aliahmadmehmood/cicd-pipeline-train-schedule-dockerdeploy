@@ -1,7 +1,10 @@
 plugins {
     id "com.moowork.node" version "1.2.0"
-    
+    id "java"
 }
+
+sourceCompatibility = '11'
+targetCompatibility = '11'
 
 node {
     download = true
