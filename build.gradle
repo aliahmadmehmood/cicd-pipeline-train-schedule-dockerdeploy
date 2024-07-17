@@ -3,9 +3,11 @@ plugins {
     id "java"
 }
 
-sourceCompatibility = '11'
-targetCompatibility = '11'
-
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(11)
+    }
+}
 node {
     download = true
     version = "9.11.1"
