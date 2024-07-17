@@ -1,6 +1,6 @@
 plugins {
     id "com.moowork.node" version "1.2.0"
-    id "java" // Add Java plugin
+    id "java"
 }
 
 node {
@@ -9,7 +9,7 @@ node {
     npmVersion = "5.6.0"
 }
 
-sourceCompatibility = '11' // Ensure Java compatibility
+sourceCompatibility = '11'
 targetCompatibility = '11'
 
 // Declare a build task
@@ -36,4 +36,3 @@ zip.dependsOn npm_build
 npm_build.dependsOn npm_test
 npm_test.dependsOn npmInstall
 npm_build.dependsOn npmInstall
-
