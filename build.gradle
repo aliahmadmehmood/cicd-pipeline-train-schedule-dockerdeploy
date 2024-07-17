@@ -1,6 +1,6 @@
 plugins {
     id "com.moowork.node" version "1.2.0"
-    id "java"
+    
 }
 
 node {
@@ -9,8 +9,12 @@ node {
     npmVersion = "5.6.0"
 }
 
-sourceCompatibility = '11'
-targetCompatibility = '11'
+allprojects {
+    tasks.withType(JavaCompile) {
+        options.forkOptions.javaHome = file("${System.env.JAVA_HOME}")
+    }
+}
+
 
 // Declare a build task
 task build
